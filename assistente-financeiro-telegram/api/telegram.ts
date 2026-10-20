@@ -1,1 +1,2 @@
-export { default } from '../src/api/telegram';
+export { default } from '../src/api/telegram.js';
+
