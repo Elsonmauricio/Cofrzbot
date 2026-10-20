@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { supabase } from '../lib/supabase.js';
 
 export async function addGosto(userId:string,valor:string){
   const v=valor.trim();

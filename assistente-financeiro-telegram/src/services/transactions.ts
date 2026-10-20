@@ -1,5 +1,5 @@
-import { supabase } from '@/lib/supabase';
-import type { TransactionType } from '@/types/finance';
+import { supabase } from '../lib/supabase.js';
+import type { TransactionType } from '../types/finance.js';
 
 export async function addTransaction(opts:{
   userId:string;

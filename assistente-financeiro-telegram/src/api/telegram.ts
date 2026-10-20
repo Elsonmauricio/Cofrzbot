@@ -1,13 +1,13 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { supabase } from '@/lib/supabase';
-import { parseNatural } from '@/lib/parser';
-import { sendMessage, answerCallbackQuery, keyboardPeriods, keyboardQuick } from '@/lib/telegram';
-import { replies } from '@/lib/replies';
-import { ensureUser, ensureDefaultAccounts, getAccountIdByName, listAccountsWithBalance } from '@/services/accounts';
-import { ensureDefaultCategories, getCategoryIdByName, getCategorySpendMonth } from '@/services/categories';
-import { addGosto, listGostos } from '@/services/preferences';
-import { addTransaction, getSaldo, getResumoMes, getHoje, getSemana, getMes, gastosPorCategoriaMes, totalRecebidoMes } from '@/services/transactions';
-import type { TelegramUpdate } from '@/types/telegram';
+import { supabase } from '../lib/supabase.js';
+import { parseNatural } from '../lib/parser.js';
+import { sendMessage, answerCallbackQuery, keyboardPeriods, keyboardQuick } from '../lib/telegram.js';
+import { replies } from '../lib/replies.js';
+import { ensureUser, ensureDefaultAccounts, getAccountIdByName, listAccountsWithBalance } from '../services/accounts.js';
+import { ensureDefaultCategories, getCategoryIdByName, getCategorySpendMonth } from '../services/categories.js';
+import { addGosto, listGostos } from '../services/preferences.js';
+import { addTransaction, getSaldo, getResumoMes, getHoje, getSemana, getMes, gastosPorCategoriaMes, totalRecebidoMes } from '../services/transactions.js';
+import type { TelegramUpdate } from '../types/telegram.js';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {

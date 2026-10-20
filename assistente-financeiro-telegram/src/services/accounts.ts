@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { supabase } from '../lib/supabase.js';
 
 export async function ensureUser(telegramId: number, nome?: string) {
   let { data: user } = await supabase.from('users').select('*').eq('telegram_id', telegramId).maybeSingle();

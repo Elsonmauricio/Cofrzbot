@@ -1,4 +1,4 @@
-import type { InlineKeyboardMarkup, SendMessageParams } from '@/types/telegram';
+import type { InlineKeyboardMarkup, SendMessageParams } from '../types/telegram.js';
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 

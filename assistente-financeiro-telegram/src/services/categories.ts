@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { supabase } from '../lib/supabase.js';
 
 export async function ensureDefaultCategories(userId: string) {
   const defaults = ['Alimentação','Transporte','Casa','Saúde','Estudos','Lazer','Compras','Salário','Outros'];

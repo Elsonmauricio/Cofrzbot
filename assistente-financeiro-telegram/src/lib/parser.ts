@@ -1,4 +1,4 @@
-import type { ParsedTransaction, TransactionType } from '@/types/finance';
+import type { ParsedTransaction, TransactionType } from '../types/finance.js';
 
 const DEFAULT_CATEGORIES: string[] = [
   'Alimentação',
