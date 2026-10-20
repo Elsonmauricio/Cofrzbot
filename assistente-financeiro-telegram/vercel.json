@@ -1,10 +1,7 @@
 {
   "functions": {
-    "src/api/telegram.ts": {
+    "api/telegram.ts": {
       "maxDuration": 10
     }
-  },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/src/api/$1" }
-  ]
+  }
 }
