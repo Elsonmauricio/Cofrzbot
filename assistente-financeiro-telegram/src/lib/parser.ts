@@ -65,8 +65,8 @@ export function extractValue(text: string): number | null {
 
 export function detectType(text: string): TransactionType | null {
   const t = text.toLowerCase();
-  if (/(recebi|receita|ganhei|rendimento)/.test(t)) return 'income';
-  if (/(gastei|paguei|despesa|debito|custo)/.test(t)) return 'expense';
+  if (/(recebi|receita|ganhei|rendimento|tenho|possuo|em mão|em mao|carteira|saldo)/.test(t)) return 'income';
+  if (/(gastei|paguei|despesa|debito|custo|comprei)/.test(t)) return 'expense';
   if (t.startsWith('/receita')) return 'income';
   if (t.startsWith('/gasto')) return 'expense';
   return null;
@@ -74,6 +74,7 @@ export function detectType(text: string): TransactionType | null {
 
 export function detectCategory(text: string): string | null {
   const t = text.toLowerCase();
+  const currencyWords = ['yuan', 'yan', 'rmb', 'real', 'reais', 'euro', 'euros', 'brl', 'cny', 'eur'];
   for (const key of Object.keys(CAT_MAP)) {
     if (t.includes(key)) {
       return CAT_MAP[key];
@@ -82,6 +83,7 @@ export function detectCategory(text: string): string | null {
   const m = t.match(/(\d+[.,]?\d*)\s*€?\s+([a-zA-ZÀ-ÿ\s]+?)(?:\s+|$)/);
   if (m && m[2]) {
     const cand = m[2].trim();
+    if (currencyWords.includes(cand)) return null;
     if (cand.length > 2 && cand.length < 20) {
       const cap = cand.charAt(0).toUpperCase() + cand.slice(1);
       return cap;
